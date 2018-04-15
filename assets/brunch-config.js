@@ -46,13 +46,14 @@ exports.config = {
   plugins: {
     babel: {
       // Do not use ES6 compiler in vendor code
-      ignore: [/vendor/]
+      ignore: [/vendor/],
+      presets: ['react']
     }
   },
 
   modules: {
     autoRequire: {
-      "js/app.js": ["js/app"]
+      "js/app.jsx": ["js/app"]
     }
   },
 

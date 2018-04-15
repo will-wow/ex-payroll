@@ -11,7 +11,7 @@ defmodule Payroll.Application do
       # Start the Ecto repository
       supervisor(Payroll.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(PayrollWeb.Endpoint, []),
+      supervisor(PayrollWeb.Endpoint, [])
       # Start your own worker by calling: Payroll.Worker.start_link(arg1, arg2, arg3)
       # worker(Payroll.Worker, [arg1, arg2, arg3]),
     ]

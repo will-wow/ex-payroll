@@ -1,17 +1,34 @@
 {
+  "name": "payroll",
+  "description": "A sample payroll system for a talk at ElixirLA",
+  "version": "0.0.0",
   "repository": {},
   "license": "MIT",
   "scripts": {
     "deploy": "brunch build --production",
-    "watch": "brunch watch --stdin"
+    "watch": "brunch watch --stdin",
+    "format": "yarn format-eslint && yarn format-prettier",
+    "format-eslint": "eslint --fix **/*.js",
+    "format-prettier": "prettier --write \"**/*.{js,json,scss}\""
   },
   "dependencies": {
-    "phoenix": "file:../deps/phoenix"
+    "ramda": "^0.25.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
   },
   "devDependencies": {
     "babel-brunch": "6.1.1",
-    "brunch": "2.10.9",
+    "babel-eslint": "^8.2.3",
+    "brunch": "2.10.12",
     "clean-css-brunch": "2.10.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "prettier": "^1.12.0",
+    "sass-brunch": "^2.10.4",
     "uglify-js-brunch": "2.10.0"
   }
 }

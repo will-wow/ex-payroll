@@ -8,8 +8,6 @@ defmodule Payroll.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
-      # Start the Ecto repository
-      supervisor(Payroll.Repo, []),
       # Start the endpoint when the application starts
       supervisor(PayrollWeb.Endpoint, [])
       # Start your own worker by calling: Payroll.Worker.start_link(arg1, arg2, arg3)

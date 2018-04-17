@@ -1,3 +1,3 @@
-import { pay } from "./employee";
+import { pay, displayName } from "./employee";
 
-export { pay };
+export { pay, displayName };

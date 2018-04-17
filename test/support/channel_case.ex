@@ -24,14 +24,4 @@ defmodule PayrollWeb.ChannelCase do
       @endpoint PayrollWeb.Endpoint
     end
   end
-
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Payroll.Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Payroll.Repo, {:shared, self()})
-    end
-
-    :ok
-  end
 end

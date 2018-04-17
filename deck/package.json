@@ -1,0 +1,24 @@
+{
+  "name": "ants-talk",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "spectacle-image-slide": "^1.0.1",
+    "spectacle-scripts": "2.0.0"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "deploy": "yarn build && surge -p ./build",
+    "test": "react-app-rewired test --env=jsdom",
+    "format": "prettier --write **/*.{js,json}"
+  },
+  "devDependencies": {
+    "prettier": "^1.10.2",
+    "raw-loader": "^0.5.1",
+    "react-app-rewired": "^1.4.0",
+    "react-scripts": "^1.1.0"
+  }
+}

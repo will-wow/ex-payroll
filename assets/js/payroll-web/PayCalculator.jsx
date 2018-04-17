@@ -15,29 +15,24 @@ class PayCalculator extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      hours: "",
-      previousHours: ""
-    };
+    this.state = { hours: "", previousHours: "" };
   }
 
   handleChange = event => {
     const { target } = event;
 
-    this.setState({
-      [target.name]: target.value
-    });
+    this.setState({ [target.name]: target.value });
   };
 
   render() {
     const { hours, previousHours } = this.state;
 
-    const currentHours = parseFloat(hours || 0);
+    const currentHours = parseNumber(hours);
 
     const workday = R.pipe(
       parsePreviousHours,
       Hours.calculateOvertime(currentHours)
-    )(previousHours || "0");
+    )(previousHours);
 
     const payHours = Hours.workdayToPayHours(workday);
 
@@ -55,7 +50,7 @@ class PayCalculator extends React.Component {
             <input onChange={this.handleChange} name="previousHours" />
           </label>
           <label>
-            Current Hours
+            Today&#39;s Hours
             <input onChange={this.handleChange} name="hours" />
           </label>
         </div>
@@ -79,7 +74,9 @@ class PayCalculator extends React.Component {
 
 export default PayCalculator;
 
-const parsePreviousHours = R.pipe(R.split(","), R.map(parseFloat));
+const parseNumber = R.pipe(R.or("0"), parseFloat);
+
+const parsePreviousHours = R.pipe(R.or("0"), R.split(","), R.map(parseNumber));
 
 const apiPayPath = (previousHours, currentHours) =>
   `/api/pay?employee=alice&hours=${currentHours}&${arrayQueryParams(

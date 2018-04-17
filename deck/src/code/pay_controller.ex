@@ -26,14 +26,4 @@ defmodule PayrollWeb.PayController do
 
     render(conn, "show.json", work_day: work_day, pay: pay)
   end
-
-  defp parse_previous_hours(hours_list) do
-    hours_list
-    |> Enum.map(&parse_hours/1)
-  end
-
-  defp parse_hours(hours) do
-    {hours, ""} = Float.parse(hours)
-    hours
-  end
 end

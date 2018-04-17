@@ -4,11 +4,10 @@ defmodule Payroll.Hours.Overtime do
   @time_and_a_half_hours 4
   @standard_week @standard_hours * 5
 
-
   @spec calculate_overtime([number], number) :: WorkDay.t()
   def calculate_overtime(previous_hours, current_hours) do
     previous_hours
-    |> Enum.map(&standard_day_cap/1)
+    |> Enum.map(&remove_overtime/1)
     |> Enum.sum()
     |> calculate_hours(length(previous_hours), current_hours)
   end
@@ -23,7 +22,7 @@ defmodule Payroll.Hours.Overtime do
 
   @spec calculate_weekday_hours(number, number) :: WorkDay.t()
   defp calculate_weekday_hours(hours, previous_hours) do
-    standard_time = standard_day_cap(hours)
+    standard_time = remove_overtime(hours)
 
     time_and_a_half = cap_up(hours - standard_time, @time_and_a_half_hours)
     double_time = hours - standard_time - time_and_a_half
@@ -35,14 +34,14 @@ defmodule Payroll.Hours.Overtime do
 
   @spec calculate_seventh_day_hours(number) :: WorkDay.t()
   defp calculate_seventh_day_hours(hours) do
-    time_and_a_half = standard_day_cap(hours)
+    time_and_a_half = remove_overtime(hours)
     double_time = hours - time_and_a_half
 
     {0, time_and_a_half, double_time}
   end
 
-  @spec standard_day_cap(number) :: number
-  defp standard_day_cap(hours) do
+  @spec remove_overtime(number) :: number
+  defp remove_overtime(hours) do
     cap_up(hours, @standard_hours)
   end
 

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Payroll</title>
+
+  <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+</head>
+
+<body>
+  <%= render @view_module, @view_template, assigns %>
+  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+
+  <script>require("js/app")</script>
+</body>
+
+</html>

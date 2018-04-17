@@ -1,5 +1,3 @@
-require IEx
-
 defmodule Payroll.Hours do
   alias Payroll.Hours.WorkDay
   alias Payroll.Hours.Overtime

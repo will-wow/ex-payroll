@@ -1,5 +1,7 @@
 import React from "react";
 
-const App = () => <div />;
+import PayCalculator from "./PayCalculator";
+
+const App = () => <PayCalculator />;
 
 export default App;

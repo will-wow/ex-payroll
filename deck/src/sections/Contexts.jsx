@@ -1,6 +1,11 @@
 import React from "react";
 
-import { Image, Heading, Notes, Slide, SlideSet } from "spectacle";
+import { CodePane, Image, Heading, Notes, Slide, SlideSet } from "spectacle";
+
+import employeesEx from "../code/employees.ex";
+import employeesJs from "../code/employees.js";
+import payController from "../code/pay_controller.ex";
+import payComponent from "../code/pay-component.txt";
 
 export default (
   <SlideSet>
@@ -33,6 +38,66 @@ export default (
         our business logic in contexts, just like in Phoenix. - We can have an
         index.js file in each context that re-exports public functions
       </Notes>
+    </Slide>
+
+    <Slide>
+      <Heading size={3}>Employees Context</Heading>
+      <CodePane textSize="2rem" lang="elixir" source={employeesEx} />
+
+      <Notes>
+        The employee module we saw earlier goes into the Employees context in
+        our phoenix app. The context module, employees/employees.ex, then can
+        delegate to the Employee functions to make them public, or potentially
+        have its own glue logic.
+      </Notes>
+    </Slide>
+
+    <Slide>
+      <Heading size={3}>Employees Context JS</Heading>
+      <CodePane textSize="2rem" lang="javascript" source={employeesJs} />
+
+      <Notes>
+        We can do something similar in JS - import the functions from employees,
+        and re-export them. If we call this file employees/index.js, we can just
+        import from employees elsewhere, which is nice.
+      </Notes>
+    </Slide>
+
+    <Slide>
+      <Heading size={3}>Phoenix Web Code</Heading>
+      <CodePane lang="elixir" source={payController} />
+
+      <Notes>
+        Finally, in our elixir app, we have a controller in the web side of the
+        code import from the employees and hours contexts to do the work of
+        calculating pay. All the complicated logic is implemented and tested
+        outside of our framework code, so this is pretty simple.
+      </Notes>
+    </Slide>
+
+    <Slide>
+      <Heading size={3}>React Web Code</Heading>
+      <CodePane lang="javascript" source={payComponent} />
+
+      <Notes>
+        - And our JS React component follows the same premise - It imports our
+        contexts, and uses their functions to do all the calculations, while it
+        handles worrying about state and rending HTML. That same nice separation
+        of concerns from Elixir is just as nice in JavaScript.
+        - So, with modules, pipelines, and contexts in JavaScript, you can...
+      </Notes>
+    </Slide>
+
+    <Slide
+      bgImage="./img/all-the-things.jpg"
+      bgSize="contain"
+      bgRepeat="no-repeat"
+    >
+      <Notes>Elixir ALL the things!</Notes>
+    </Slide>
+
+    <Slide>
+      <Heading>Thanks!</Heading>
     </Slide>
   </SlideSet>
 );

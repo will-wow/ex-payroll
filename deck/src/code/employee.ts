@@ -8,5 +8,4 @@ export interface Employee {
 export const displayName = ({ firstName, lastName, title }: Employee): string =>
   `${firstName} ${lastName}: ${title}`;
 
-export const pay = (hours, { wage }: Employee): number => hours * wage;
-
+export const pay = ({ wage }: Employee, hours: number): number => hours * wage;

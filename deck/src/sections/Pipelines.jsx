@@ -9,5 +9,11 @@ export default (
 
       <Notes>Bar</Notes>
     </Slide>
+
+    <Slide>
+      <Heading>Foo</Heading>
+
+      <Notes>Bar</Notes>
+    </Slide>
   </SlideSet>
 );

@@ -14,8 +14,8 @@ export const displayName = ({ firstName, lastName, title }) =>
   `${firstName} ${lastName}: ${title}`;
 
 /**
- * @param {number} hours
  * @param {Employee} employee
+ * @param {number} hours
  * @returns {number}
  */
-export const pay = (hours, { wage }) => hours * wage;
+export const pay = ({ wage }, hours) => hours * wage;

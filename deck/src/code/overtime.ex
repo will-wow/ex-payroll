@@ -6,10 +6,12 @@ defmodule Payroll.Hours.Overtime do
 
   @spec calculate_overtime([number], number) :: WorkDay.t()
   def calculate_overtime(previous_hours, current_hours) do
+    previous_days = length(previous_hours)
+
     previous_hours
     |> Enum.map(&remove_overtime/1)
     |> Enum.sum()
-    |> calculate_hours(length(previous_hours), current_hours)
+    |> calculate_hours(previous_days, current_hours)
   end
 
   defp remove_overtime(hours)

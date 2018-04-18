@@ -24,11 +24,10 @@ export default (
       <Notes>
         - a pretty standard Elixir module
         - you define a data structure that the functions will be working on
-        - you can also use a type to define exactly what's in the struct - string names and a number wage
-        - define an employee struct with a name, title, and a wage
+        - you can also use a type to define exactly what's in the struct (string names and a number wage)
         - functions generally take the struct as their first parameter
         - displaying their full name and title, or calculating their pay
-        - In JS we might define an employee class that has those methods, but Elixir, functional, particularly with React
+        - In JS we could define an employee class that has those methods, but Elixir, functional, particularly with React classes are no go
       </Notes>
     </Slide>
 
@@ -60,7 +59,7 @@ export default (
       <CodePane lang="elixir" source={importEmployeeEx} />
 
       <Notes>
-        In Elixir, you to use your module, you can alias it, and then use the functions prefixed with the module name.
+        To use these functions, in Elixir, you can alias the module, and then use the functions prefixed with the module name.
       </Notes>
     </Slide>
 
@@ -83,6 +82,7 @@ export default (
         - Happily the import star syntax gets us closer to elixir
         - Now our functions are prefixed with the module name
         - helps readability
+        - getting more Elixir-y already!
       </Notes>
     </Slide>
   </SlideSet>

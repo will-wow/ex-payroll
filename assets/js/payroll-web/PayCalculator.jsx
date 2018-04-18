@@ -1,5 +1,5 @@
 import React from "react";
-import * as R from "ramda";
+import R from "ramda";
 
 import * as Employees from "../payroll/employees";
 import * as Hours from "../payroll/hours";
@@ -15,7 +15,7 @@ class PayCalculator extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { hours: "", previousHours: "" };
+    this.state = { hours: "16", previousHours: "8,10,8,8,6" };
   }
 
   handleChange = event => {
@@ -47,11 +47,15 @@ class PayCalculator extends React.Component {
         <div>
           <label>
             Previous Hours
-            <input onChange={this.handleChange} name="previousHours" />
+            <input
+              value={previousHours}
+              onChange={this.handleChange}
+              name="previousHours"
+            />
           </label>
           <label>
             Today&#39;s Hours
-            <input onChange={this.handleChange} name="hours" />
+            <input value={hours} onChange={this.handleChange} name="hours" />
           </label>
         </div>
         <br />
@@ -74,9 +78,9 @@ class PayCalculator extends React.Component {
 
 export default PayCalculator;
 
-const parseNumber = R.pipe(R.or("0"), parseFloat);
+const parseNumber = R.pipe(R.defaultTo("0"), parseFloat);
 
-const parsePreviousHours = R.pipe(R.or("0"), R.split(","), R.map(parseNumber));
+const parsePreviousHours = R.pipe(R.defaultTo("0"), R.split(","), R.map(parseNumber));
 
 const apiPayPath = (previousHours, currentHours) =>
   `/api/pay?employee=alice&hours=${currentHours}&${arrayQueryParams(

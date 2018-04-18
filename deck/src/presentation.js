@@ -35,8 +35,8 @@ export default class Presentation extends React.Component {
       <Deck transitionDuration={500} theme={theme} contentHeight={1000}>
         {IntroSlides}
         {Modules}
-        {Contexts}
         {Pipelines}
+        {Contexts}
       </Deck>
     );
   }

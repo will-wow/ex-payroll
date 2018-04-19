@@ -2,16 +2,15 @@ import React from "react";
 
 import {
   Heading,
-  Image,
+  Link,
   List,
   ListItem,
   Notes,
-  Quote,
   Slide,
   SlideSet,
-  Text,
-  Link
 } from "spectacle";
+
+import NoteList from "../elements/NoteList";
 
 export default (
   <SlideSet>
@@ -36,11 +35,12 @@ export default (
     <Slide>
       <Heading size={2}>Elixir spoils you</Heading>
 
-      <Notes>
-        - if you're here at the meetup you'll agree Elixir is a particularly
-        pleasant language - whenever I'm pairing in another langage, I feel like
-        Phoebe from Magic School Bus
-      </Notes>
+      <NoteList
+        notes={[
+          "if you're here at the meetup you'll agree Elixir is a particularly pleasant language",
+          "whenever I'm pairing in another language, I feel like Phoebe from Magic School Bus"
+        ]}
+      />
     </Slide>
 
     <Slide
@@ -56,12 +56,15 @@ export default (
     <Slide>
       <Heading size={2}>But Javascript is whatever you want it to be</Heading>
 
-      <Notes>
-        - true if we're working on the frontend - But Javascript is whatever you
-        want it to be - gift and a curse - talk about how we can take some of
-        the best parts of elixir and bring them into Javascript - won't be for
-        every project, but if your team is already working in Elixir
-      </Notes>
+      <NoteList
+        notes={[
+          "this definitely happens a lot when working on the frontend",
+          "But Javascript is whatever you want it to be",
+          "gift and a curse",
+          "challenge, but we can take some of the best parts of elixir and bring them into Javascript",
+          "won't be good for every project, but if your team is already working in Elixir"
+        ]}
+      />
     </Slide>
 
     <Slide>
@@ -73,28 +76,30 @@ export default (
         <ListItem>Pipelines</ListItem>
       </List>
 
-      <Notes>
-        - here are three techniques to make our frontend code a little more
-        elixir-y - Modules - if we organize our data structures and functions
-        correctly, we can basically replicate elixir modules - Contexts -
-        Phoenix has some really good ideas about how to split your application
-        and domain logic. Turns out they're equally good ideas on the frontend -
-        Pipelines - One of the best parts of elixir, and you can get most of the
-        way there in JS, without any Stage 1 syntax
-      </Notes>
+      <NoteList
+        notes={[
+          "here are three techniques to make our frontend code a little more elixir-y",
+          "Modules - if we organize our data structures and functions correctly, we can basically replicate elixir modules",
+          "Contexts - Phoenix has some really good ideas about how to split up your application and domain logic. Turns out they're equally good ideas on the frontend",
+          "Pipelines - One of the best parts of elixir, and you can get most of the way there in JS, without any Stage 1 syntax"
+        ]}
+      />
     </Slide>
 
     <Slide>
       <Link href="http://localhost:4000/#/">
-      <Heading fit>Sample Payroll App</Heading>
+        <Heading fit>Sample Payroll App</Heading>
       </Link>
 
-      <Notes>
-        - useful to have something a little more complicated than a ToDo app
-        - build an app where an hourly employee can enter their hours, and calculate their pay for the day.
-        - what makes this slightly complicated is California Wage and Hours laws.
-        - Heads up, the next slide is extremely boring.
-      </Notes>
+      <NoteList
+        notes={[
+          "to have a concrete example to talk about",
+          "build an app where an hourly employee can enter their hours, and calculate their pay for the day.",
+          "useful to have something a little more complicated than a ToDo app",
+          "what makes this slightly complicated is California Wage and Hours laws.",
+          "Fair warning, the next slide is extremely boring."
+        ]}
+      />
     </Slide>
 
     <Slide>
@@ -114,32 +119,33 @@ export default (
         </ListItem>
       </List>
 
-      <Notes>
-        - I warned you.
-        - Basically this says that you get paid your normal hourly wage (straight time) for the first 8 hours of a day, time and a half for the next 4, and double time after that
-        - After working 40 straight time hours in a week, (like on a Saturday) you get time and a half no matter what
-        - On your seventh day straight working, you get time and a half for the first 8 hours, and double after that.
-        - What's important is a day's pay is a function of the hours worked that day, and the hours worked during the week.
-      </Notes>
+      <NoteList
+        notes={[
+          "I warned you.",
+          "Basically this says that you get paid your normal hourly wage (straight time) for the first 8 hours of a day, time and a half for the next 4, and double time after that",
+          "After working 40 straight time hours in a week, (like on a Saturday) you get time and a half no matter what",
+          "On your seventh day straight working, you get time and a half for the first 8 hours, and double after that.",
+          "What's important is a day's pay is a function of the hours worked that day, and the hours worked during the week."
+        ]}
+      />
     </Slide>
 
     <Slide>
       <Heading fit>Building a front-end</Heading>
 
       <List>
-        <ListItem>
-          Existing Phoenix API that calculates pay
-        </ListItem>
-        <ListItem>
-          Building React app
-        </ListItem>
+        <ListItem>Existing Phoenix API that calculates pay</ListItem>
+        <ListItem>Building React app</ListItem>
       </List>
 
-      <Notes>
-        - So here's the situation. We've got a sweet Phoenix API that calculates pay
-        - Product thinks users want more interactivity, so we're building a React app that does the same calculations
-        - we'll see how we might have implemented the Elixir side, and how we can borrow some Elixir idioms when re-implementing it in JS 
-      </Notes>
+      <NoteList
+        notes={[
+          "So here's the situation. We've got a sweet Phoenix API that calculates pay",
+          "Product thinks users want more interactivity, so we're building a React app that does the same calculations",
+          "as Elixir devs we might be sad to have to leave Elixir-land",
+          "let's see how we can ease that burden"
+        ]}
+      />
     </Slide>
 
     <Slide
@@ -147,9 +153,7 @@ export default (
       bgSize="contain"
       bgRepeat="no-repeat"
     >
-      <Notes>
-        Here's the final React app. Web brutalism at its finest.
-      </Notes>
+      <Notes>BTW here's the final React app. Web brutalism at its finest.</Notes>
     </Slide>
   </SlideSet>
 );
